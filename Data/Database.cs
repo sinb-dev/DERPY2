@@ -8,11 +8,12 @@ namespace DERPY.Data
 {
     public partial class Database
     {
-        public static Database Instance { get; private set; }
+        public static Database Instance { get; private set; } = new Database();
 
-        static Database()
+        private Database() 
         {
-            Instance = new Database();
+
         }
+
     }
 }
