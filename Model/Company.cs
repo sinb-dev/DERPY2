@@ -23,5 +23,5 @@ namespace DERPY.Model
         public string Country { get; set; }
         public string Currency { get; set; }
     }
-    }
 }
+
