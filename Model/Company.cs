@@ -22,7 +22,7 @@ namespace DERPY.Model
         public string Number { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
-        public string Currency { get; set; }
+        public Currency Currency { get; set; }
     }
 }
 

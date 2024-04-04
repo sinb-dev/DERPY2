@@ -1,5 +1,3 @@
-using System;
-
 namespace DERPY.Model
 {
     public enum Currency
