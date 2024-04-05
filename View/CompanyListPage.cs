@@ -21,6 +21,10 @@ public class CompanyListPage : Screen
         listPage.AddKey(ConsoleKey.F1, createNewCompany);
         Console.WriteLine("Tryk F1 for at oprette virksomhed");
 
+        //V5 - Add key to edit company
+        listPage.AddKey(ConsoleKey.F2, editCompany);
+        Console.WriteLine("Tryk F2 for at redigere virksomhed");
+
         //Add some columns
         listPage.AddColumn("Selskab", nameof(Company.CompanyName), 40);
         listPage.AddColumn("Land", nameof(Company.Country));
@@ -46,6 +50,11 @@ public class CompanyListPage : Screen
     {
         Company new_company = new();
         Screen.Display(new CompanyEditor(new_company));
+    }
+
+    void editCompany(Company company) 
+    {
+        Screen.Display(new CompanyEditor(company));
     }
 }
 
