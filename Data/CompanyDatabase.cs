@@ -10,7 +10,10 @@ namespace DERPY.Data
 {
     public partial class Database
     {
-        List<Company> companies = new();
+        List<Company> companies = new() {
+            new Company {CompanyId = 1, CompanyName = "Foderbrættet A/S", Country = "Danmark", Currency = Currency.DKK },
+            new Company {CompanyId = 2, CompanyName = "Foodboard Ltd", Country = "USA", Currency = Currency.USD }
+        };
         public Company GetCompanyById(int id) 
         {
             foreach (var company in companies)
@@ -25,7 +28,7 @@ namespace DERPY.Data
         public List<Company> GetCompanies() 
         {
             List<Company> companyCopy = new();
-            companyCopy.AddRange(companyCopy);
+            companyCopy.AddRange(companies);
             return companyCopy;
         }
 
