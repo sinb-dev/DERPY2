@@ -12,6 +12,8 @@ public class CompanyListPage : Screen
 
     protected override void Draw()
     {
+        ExitOnEscape();
+        
         Console.CursorVisible = false;
 
         //A ListPage draws columns and rows in a box
