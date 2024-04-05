@@ -1,7 +1,7 @@
 using System;
+using System.Runtime.InteropServices;
 using DERPY.Data;
 using DERPY.Model;
-using Org.BouncyCastle.Crypto.Tls;
 using TECHCOOL.UI;
 
 namespace DERPY;
@@ -24,6 +24,10 @@ public class CompanyListPage : Screen
         //V5 - Add key to edit company
         listPage.AddKey(ConsoleKey.F2, editCompany);
         Console.WriteLine("Tryk F2 for at redigere virksomhed");
+
+        //V6 - Add key to edit company
+        listPage.AddKey(ConsoleKey.F5, removeCompany);
+        Console.WriteLine("Tryk F5 for at slette virksomhed");
 
         //Add some columns
         listPage.AddColumn("Selskab", nameof(Company.CompanyName), 40);
@@ -55,6 +59,13 @@ public class CompanyListPage : Screen
     void editCompany(Company company) 
     {
         Screen.Display(new CompanyEditor(company));
+    }
+
+    void removeCompany(Company company) 
+    {
+        Database.Instance.DeleteCompany(company);
+        Screen.Clear(this);
+        Draw();
     }
 }
 
