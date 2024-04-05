@@ -29,7 +29,14 @@ namespace DERPY
             form.AddOption("Currency", "SEK", Currency.SEK);
             if (form.Edit(company)) 
             {
-                Database.Instance.UpdateCompany(company);
+                if (company.CompanyId != 0)
+                {
+                    Database.Instance.UpdateCompany(company);
+                }
+                else
+                {
+                    Database.Instance.InsertCompany(company);
+                }
                 Console.WriteLine("Ændringerne blev gemt");
             }
             else
