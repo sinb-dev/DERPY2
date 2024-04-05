@@ -1,6 +1,7 @@
 using System;
 using DERPY.Data;
 using DERPY.Model;
+using Org.BouncyCastle.Crypto.Tls;
 using TECHCOOL.UI;
 
 namespace DERPY;
@@ -15,6 +16,10 @@ public class CompanyListPage : Screen
 
         //A ListPage draws columns and rows in a box
         ListPage<Company> listPage = new();
+
+        //V4 - Add keys to create company
+        listPage.AddKey(ConsoleKey.F1, createNewCompany);
+        Console.WriteLine("Tryk F1 for at oprette virksomhed");
 
         //Add some columns
         listPage.AddColumn("Selskab", nameof(Company.CompanyName), 40);
@@ -35,6 +40,12 @@ public class CompanyListPage : Screen
             //Ask Screen class to display the CompanyDetails view
             Screen.Display(new CompanyDetails(company));
         }
+    }
+
+    void createNewCompany(Company _)
+    {
+        Company new_company = new();
+        Screen.Display(new CompanyEditor(new_company));
     }
 }
 
