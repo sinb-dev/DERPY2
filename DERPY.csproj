@@ -9,8 +9,4 @@
     <PackageReference Include="techcool" Version="1.4.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\TECHCOOL\TECHCOOL.csproj" />
-  </ItemGroup>
-
 </Project>
